@@ -4,14 +4,17 @@
 \alias{neighMedFilt}
 \title{Neighbor-based median filtering for 2D matrices}
 \usage{
-neighMedFilt(pngList, outDir = "Median_filtered")
+neighMedFilt(imageList, outDir = "Median_filtered")
 }
 \arguments{
-\item{pngList}{Either a list of imported pngs, as with the example file, or
-more commonly in the user case, a list of file names, e.g. generated with
+\item{imageList}{Either a list of imported images, as with the example file,
+or more commonly in the user case, a list of file names, e.g. generated with
 list.files(). The second option is preferred, as the function will handle
 one file at the time anyway, and this is a more reasonable method from a
-memory perspective.}
+memory perspective. As this is primarily directed against reproduction of the
+results from the cited paper by M Ramberger et al, currently only importing
+of RGB-coloured pngs are implemented, and only the red fraction will be
+looked at, as this has been used for phRodo analysis.}
 
 \item{outDir}{The directory where the filtered files will be saved. If FALSE,
 the full result will be returned as a list, which is not recommended.}
