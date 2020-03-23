@@ -3,7 +3,7 @@
 #' Here, a set of control frames and a quantile is provided, which together
 #' generate a cutoff used for downstream analyses.
 #' @param ctrlImageList Either a named list, as with the
-#' example file or a movie, or a list of RGB png file names, e.g. generated with
+#' example file or a movie, or a vector of RGB png file names, e.g. generated with
 #' list.files(). The second option is preferred for images, as this is a more
 #' reasonable method from a memory perspective.
 #' @param quant The quantile of pixel intensities in all the images in

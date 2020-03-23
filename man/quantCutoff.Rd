@@ -8,7 +8,7 @@ quantCutoff(ctrlImageList, quant = 0.99)
 }
 \arguments{
 \item{ctrlImageList}{Either a named list, as with the
-example file or a movie, or a list of RGB png file names, e.g. generated with
+example file or a movie, or a vector of RGB png file names, e.g. generated with
 list.files(). The second option is preferred for images, as this is a more
 reasonable method from a memory perspective.}
 

@@ -4,20 +4,20 @@
 \alias{pixSum}
 \title{Sum pixel intensity above threshold}
 \usage{
-pixSum(imageList, quantCutResult)
+pixSum(imageList, quantCutThreshold)
 }
 \arguments{
 \item{imageList}{Either a named list of images, as with the
-example file or a movie, or a list of RGB png file names, e.g. generated with
+example file or a movie, or a vector of RGB png file names, e.g. generated with
 list.files(). The second option is preferred for images, as this is a more
 reasonable method from a memory perspective.}
 
-\item{quantCutResult}{A result from the quantCutoff function on a relevant
+\item{quantCutThreshold}{A result from the quantCutoff function on a relevant
 control dataset. NB! The same controls can be included in the imageList too.}
 }
 \value{
-A named vector with the pixel intensity sum values for all frames in
-imageList.
+A named vector with the sum of pixel intensities above the
+quantCutThreshold normalized to the total number of pixels in the frame.
 }
 \description{
 In this function, we use the input from the quantCutoff function to sum the
@@ -30,5 +30,8 @@ central function of the package.
 data(testImages)
 
 #Run the function with the output in the current directory
-sumVector <- pixSum(testImages, quantCutoff(testImages[1], 0.99))
+pixSum(testImages, quantCutoff(testImages[1], 0.99))
+#Expected result:
+#       A33        P79
+#0.00140716 0.02007561
 }
