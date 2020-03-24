@@ -5,28 +5,42 @@
 \title{Normalize each movie frame to its median and MAD and sum the result for all
 pixels}
 \usage{
-medMadNormSum(imageList, quantThreshFrames = 1:4, outDir = "default")
+medMadNormSum(
+  imageList,
+  quantThreshFrames = 1:4,
+  quantThreshQuant = 0.99,
+  outDir = "."
+)
 }
 \arguments{
 \item{imageList}{A named list of images, as with the
-example file or a movie, or a vector of TIFF file names, e.g. generated with
-list.files().¨}
+example file, or a vector of TIFF file names, e.g. generated with
+list.files().}
 
 \item{quantThreshFrames}{The frames in the movie that will be used to set the
 quantile-based threshold for summation. Default is frame 1:4, as four
 pictures were taken per hour in the paper.}
 
-\item{outDir}{If the imageList is a vector of TIFF file names, this will
-be the place where the filtered movies will be saved. Default is to save
-a new .rds file in the same directory as the old file, but with the extension
-"normalized". Can}
+\item{quantThreshQuant}{The quantile above which for the control frames
+defined above, that the sum of pixel intensity will be calculated for all
+frames.}
+
+\item{outDir}{Directory where the normalized tiff movies will be saved.
+Default is to save a new tiff file in the current directory, with the same
+name as the old file, but with the extension "normalized".}
 }
 \value{
-A list of two, both containing lists of length(imageList), containing
-1: pixel intensity sums for each frame in above the threshold.
-2: quantiles that should be used as input for the normMovie function.
-In addition, side effect in form of filtered movies, one per imageList item.
-890:950,1285:1325
+A list of two, both containing lists of length(imageList):
+\describe{
+   \item{pixSums}{Pixel intensity sums for each frame in above the
+   quantile threshold.}
+   \item{highQuants}{quantiles that should be used as input for the
+   hiQuantAdjust function.}
+}
+In addition, side effect in form of normalized movies, one per imageList
+item. Worth noting is that the intensities in these movies are flat, i.e.,
+the top and bottom intensity is identical in all frames. To make these
+movies useful, use the \code{\link{hiQuantAdjust}} function.
 }
 \description{
 This function is meant to normalize frames of a movie, as there might be
@@ -36,9 +50,12 @@ experiment lasting days.
 \examples{
 
 #Load example data.
-data(testImages)
+data(testMovie)
 
 #Run the function with the output in the current directory
-medMadNormIm <- medMadNorm(testImages)
+medMadNormSumRes <- medMadNormSum(testMovie)
 
+}
+\seealso{
+\code{\link{hiQuantAdjust}}
 }

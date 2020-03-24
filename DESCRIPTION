@@ -1,15 +1,14 @@
 Package: pixSum
 Type: Package
-Title: Package for image analysis as in M. Ramberger et al: 
-    Distinctive binding properties of patient-derived monoclonal 
-    LGI1-autoantibodies determine pathogenicity. Brain; 2020. 
+Title: Summation of pixel intensities above threshold in png images and tiff movies
 Version: 0.1.0
 Authors@R: person('Jakob', 'Theorell', email = "jakob.theorell@ndcn.ox.ac.uk",
         role = c("aut", "cre"))
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: MIT
+Description: Package for image analysis as in M. Ramberger et al: 
+    Distinctive binding properties of patient-derived monoclonal 
+    LGI1-autoantibodies determine pathogenicity. Brain; 2020. 
+License: MIT + file LICENSE
 Encoding: UTF-8
 Depends: R (>= 3.6)
-Imports: 
+Imports: ccaPP (>= 0.3.3), png (>= 0.1.7), stats (>= 3.6.3), tiff (>= 0.1.5)
 RoxygenNote: 7.1.0

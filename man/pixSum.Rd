@@ -8,8 +8,8 @@ pixSum(imageList, quantCutThreshold)
 }
 \arguments{
 \item{imageList}{Either a named list of images, as with the
-example file or a movie, or a vector of RGB png file names, e.g. generated with
-list.files(). The second option is preferred for images, as this is a more
+example file, or a vector of RGB png file names, e.g. generated with
+list.files(). The second option is preferred, as this is a more
 reasonable method from a memory perspective.}
 
 \item{quantCutThreshold}{A result from the quantCutoff function on a relevant
@@ -21,8 +21,7 @@ quantCutThreshold normalized to the total number of pixels in the frame.
 }
 \description{
 In this function, we use the input from the quantCutoff function to sum the
-pixel intensity in the fraction above the threshold. This is the
-central function of the package.
+pixel intensity in the fraction above the threshold for individual images.
 }
 \examples{
 

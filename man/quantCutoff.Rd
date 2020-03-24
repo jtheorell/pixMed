@@ -8,8 +8,8 @@ quantCutoff(ctrlImageList, quant = 0.99)
 }
 \arguments{
 \item{ctrlImageList}{Either a named list, as with the
-example file or a movie, or a vector of RGB png file names, e.g. generated with
-list.files(). The second option is preferred for images, as this is a more
+example file, or a vector of RGB png file names, e.g. generated with
+list.files(). The second option is preferred, as this is a more
 reasonable method from a memory perspective.}
 
 \item{quant}{The quantile of pixel intensities in all the images in
@@ -31,4 +31,5 @@ data(testImages)
 #Run the function with the output in the current directory
 quantCutoff(testImages[1], 0.99)
 #Expected result: 0.1098039
+
 }
